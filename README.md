@@ -1,7 +1,7 @@
 # 🌟 App Talentos Perú
 
 Proyecto desarrollado por **Katherina Marilu Cornelio**  
-🔗 **Demo publicada:** [Enlace a la aplicación](https://tu-enlace-deploy.com)  
+🔗 **Demo publicada:** [Enlace a la aplicación](https://app-talentos-peru.netlify.app/)  
 🎨 **Prototipo Figma Desktop:** [Ver en Figma](https://www.figma.com/proto/0iQnhaVxOVcNuloOLEyAJN/Talentos-Peru?node-id=46-149&t=Ris1lE3qGowsCrlZ-1&scaling=scale-down&content-scaling=fixed&page-id=46%3A148&starting-point-node-id=46%3A149)  
 📱 **Prototipo Figma Mobile:** [Ver en Figma](https://www.figma.com/proto/0iQnhaVxOVcNuloOLEyAJN/Talentos-Peru?node-id=60-292&p=f&t=lAiGoPANodDeDHfG-1&scaling=scale-down&content-scaling=fixed&page-id=60%3A291&starting-point-node-id=60%3A292)
 
