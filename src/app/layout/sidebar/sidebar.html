@@ -1,0 +1,31 @@
+<div [ngClass]="classSideBar">
+  <p-menu [model]="items" styleClass="w-70 md:w-80 h-full relative">
+    <ng-template #start>
+      <div class="flex items-center gap-4 my-3 mx-2 p-2 rounded-md bg-violet-100">
+        <p-avatar image="https://primefaces.org/cdn/primeng/images/demo/avatar/amyelsner.png" shape="circle"></p-avatar>
+        <div class="flex flex-col">
+          <p class="font-medium">Katherina Cornelio</p>
+          <p class="text-gray-500 text-sm">katherina.cornelio@gmail.com</p>
+        </div>
+      </div>
+
+    </ng-template>
+    <ng-template #item let-item>
+      <a pRipple class="flex items-center p-menu-item-link" [routerLink]="[item.routerLink]" (click)="onClick()">
+        <span [class]="item.icon" routerLinkActive="text-violet-500" [routerLinkActiveOptions]="{ exact: true }"></span>
+        <span class="ml-2" routerLinkActive="text-violet-500 font-bold" [routerLinkActiveOptions]="{ exact: true }">{{
+          item.label }}</span>
+      </a>
+    </ng-template>
+    <ng-template #end>
+      <button pRipple
+        class="w-full flex items-start p-2 pl-4 absolute bottom-0 border-t border-gray-200  hover:bg-[#f1f5f9]  cursor-pointer">
+        <div class="flex justify-center gap-4 ">
+          <i class="pi pi-sign-out text-gray-500 cursor-pointer"></i>
+          <p class="font-bold">Cerrar Sesión</p>
+        </div>
+
+      </button>
+    </ng-template>
+  </p-menu>
+</div>

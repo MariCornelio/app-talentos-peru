@@ -1,0 +1,111 @@
+<h2 class="font-bold text-lg md:text-xl text-gray-700">Empleos para ti</h2>
+<form [formGroup]="jobsForm">
+  <div class="card-primary w-full my-2 flex flex-col gap-2 md:flex-row">
+    <div class="md:w-1/2">
+      <p-iconfield>
+        <p-inputicon class="pi pi-briefcase" />
+        <input type="text" formControlName="name" pInputText placeholder="Titulo del empleo" class="w-full " />
+      </p-iconfield>
+    </div>
+    <div class="md:w-1/2">
+      <p-select formControlName="location" [options]="departments" optionLabel="name" optionValue="code" [filter]="true"
+        filterBy="name" [showClear]="true" placeholder="Lugar de trabajo" class="w-full">
+      </p-select>
+    </div>
+    <p-button label="Buscar" icon="pi pi-search" fluid="true" class="md:w-1/3" />
+  </div>
+
+  <p class="mt-4 font-semibold text-gray-700">Filtrar empleos</p>
+  <div class="grid grid-cols-12 gap-2 w-full my-4">
+    <div class="col-span-12 md:col-span-3">
+      <p-multiselect [options]="workArea" formControlName="workArea" optionLabel="name" optionValue="value"
+        placeholder="Área de trabajo" [fluid]="true">
+        <ng-template #footer>
+          <div class="p-3 flex justify-end ">
+            <p-button label="Limpiar" severity="danger" text size="small" icon="pi pi-trash"
+              (onClick)="clearWorkArea()" />
+          </div>
+        </ng-template>
+      </p-multiselect>
+    </div>
+    <div class="col-span-12  md:col-span-3">
+      <p-select formControlName="modality" [options]="modality" optionLabel="name" optionValue="value" filterBy="name"
+        [showClear]="true" placeholder="Modalidad" class="w-full">
+      </p-select>
+    </div>
+    <div class="col-span-12  md:col-span-3">
+      <p-select formControlName="workingHours" [options]="workingHours" optionLabel="name" optionValue="value"
+        [showClear]="true" placeholder="Jornada" class="w-full">
+      </p-select>
+    </div>
+    <div class="col-span-12  md:col-span-3">
+      <p-select formControlName="disability" [options]="disability" optionLabel="name" optionValue="value"
+        [showClear]="true" placeholder="Discapacidad" class="w-full">
+      </p-select>
+    </div>
+  </div>
+</form>
+<div>
+
+  @for (job of jobsStoreSvc.jobs(); track job.id) {
+  <div class="card-primary mb-2">
+    <div class="grid grid-cols-12">
+      <div class="col-span-12 md:col-span-8 flex gap-4">
+        <div class="flex justify-center">
+          <div class=" w-20
+          
+          
+          
+          ">
+            <img [src]="job.image" alt="logo-empresa" class="object-cover rounded-md ">
+          </div>
+        </div>
+        <div>
+          <p class="font-bold text-gray-700 text-lg">{{job.name}}</p>
+          <p class="font-semibold text-gray-500">{{job.company}}</p>
+          <p class="pt-2 text-gray-600">{{job.description}}</p>
+          <p class="mt-4 font-light text-violet-900">{{`Publicado el ${job.createdAt | date: 'dd/MM/yy'}`}}</p>
+        </div>
+      </div>
+      <div class="col-span-12 md:col-span-3">
+        <div>
+          <div class="flex gap-2 mb-2">
+            <i class="pi pi-map-marker text-gray-500 cursor-pointer"></i>
+            <p class="text-gray-600">{{job.location! | departmentLabel}}</p>
+          </div>
+          <div class="flex gap-2 mb-2">
+            @if (job.modality==='remote') {
+            <i class="pi pi-home text-gray-500 cursor-pointer"></i>
+            }@else {
+            <i class="pi pi-building text-gray-500 cursor-pointer"></i>
+            }
+
+            <p class="text-gray-600">{{job.modality! | modalityName}}</p>
+          </div>
+          @if (job.disability) {
+          <div class="flex gap-2 mb-2">
+            <img src="icon-disability.png" alt="icono-discapacitados" width="15">
+            <p class="text-gray-600">Apto Discapacidad</p>
+          </div>
+          }
+
+          <div class="mt-6">
+            <p-button label="Postulate ahora" variant="outlined" icon="
+  pi pi-angle-double-right" />
+          </div>
+        </div>
+      </div>
+      <div class="col-span-12 md:col-span-1 flex justify-end">
+        @if(job.favorite){
+        <i class="pi pi-heart-fill text-red-500 cursor-pointer"></i>
+        }@else {
+
+        <i class="pi pi-heart text-gray-500 cursor-pointer"></i>
+        }
+      </div>
+    </div>
+  </div>
+  }
+
+
+</div>
