@@ -3,7 +3,6 @@ import { InputIcon } from 'primeng/inputicon';
 import { IconField } from 'primeng/iconfield';
 import { InputTextModule } from 'primeng/inputtext';
 import { ButtonModule } from 'primeng/button';
-import { Skeleton } from 'primeng/skeleton';
 import { Select } from 'primeng/select';
 import { MultiSelect } from 'primeng/multiselect';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
@@ -21,7 +20,6 @@ import { ModalityNamePipe } from '../../../../shared/pipes/modalityName.pipe';
     InputTextModule,
     IconField,
     ButtonModule,
-    Skeleton,
     Select,
     MultiSelect,
     CommonModule,
